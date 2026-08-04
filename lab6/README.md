@@ -26,39 +26,39 @@ This lab deploys a multi-tier application on a local single-node Kubernetes clus
 ## How to Run
 
 1. Start the cluster:
-```bash
+   ```bash
    minikube start --driver=docker
-```
+   ```
 
 2. Apply all manifests:
-```bash
+   ```bash
    kubectl apply -f k8s/
-```
+   ```
 
 3. Check everything is running:
-```bash
+   ```bash
    kubectl get all
-```
+   ```
 
 4. Access the frontend:
-```bash
+   ```bash
    minikube service frontend --url
-```
+   ```
    Open the printed URL in a browser.
 
 5. Clean up when done:
-```bash
+   ```bash
    kubectl delete -f k8s/
    minikube stop
-```
+   ```
 
 ## Folder Structure
-.
-├── answers.md
-├── k8s
+
+```
+lab6/
+├── k8s/
 │   ├── api-deployment.yaml
 │   ├── api-service.yaml
-│   ├── broken-pod.yaml
 │   ├── cache-deployment.yaml
 │   ├── cache-service.yaml
 │   ├── deployment-frontend.yaml
@@ -66,11 +66,25 @@ This lab deploys a multi-tier application on a local single-node Kubernetes clus
 │   ├── postgres-service.yaml
 │   ├── postgres-statefulset.yaml
 │   └── service-frontend.yaml
-├── README.md
-└── screenshots
-    ├── task1.1.png
-    ├── task2.1.png
-    └── ...
+├── screenshots/
+│   ├── Task-01.1.png
+│   ├── Task-02.1.png
+│   ├── Task-03.1-before.png
+│   ├── Task-03.2-after.png
+│   ├── Task-04.1-before.png
+│   ├── Task-04.2-scaled-down.png
+│   ├── Task-05.1.png
+│   ├── Task-06.1-update.png
+│   ├── Task-06.2-rollback.png
+│   ├── Task-07.1.png
+│   ├── Task-08.1.png
+│   ├── Task-09.1-status.png
+│   ├── Task-09.2-kubectl-get-pods.png
+│   └── Task-10.1.png
+├── answers.md
+└── README.md
+```
+
 ## Key Concepts Demonstrated
 
 - **Self-healing:** Deleting a pod in a Deployment triggers automatic recreation to match the desired replica count.
