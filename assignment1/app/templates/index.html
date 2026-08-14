@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes App</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; }
+        li { margin-bottom: 8px; }
+        form { margin-bottom: 20px; }
+        input[type=text] { width: 70%; padding: 8px; }
+        button { padding: 8px 12px; }
+    </style>
+</head>
+<body>
+    <h1>My Notes</h1>
+    <form action="/add" method="post">
+        <input type="text" name="content" placeholder="Write a note..." required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for note in notes %}
+        <li>
+            {{ note[1] }}
+            <form action="/delete/{{ note[0] }}" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
